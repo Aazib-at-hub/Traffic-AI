@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netsentinel-ai"
+version = "0.1.0"
+description = "NetSentinel AI — Intelligent Network Threat Detection and Autonomous Security Investigation Platform"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.6.0",
+    "sqlalchemy>=2.0.35",
+    "alembic>=1.13.3",
+    "psycopg[binary]>=3.2.0",
+    "pgvector>=0.3.5",
+    "redis>=5.1.0",
+    "celery>=5.4.0",
+    "boto3>=1.35.0",
+    "python-multipart>=0.0.12",
+    "pyjwt>=2.9.0",
+    "argon2-cffi>=23.1.0",
+    "httpx>=0.27.2",
+    "numpy>=1.26.4",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.5.2",
+    "xgboost>=2.1.1",
+    "shap>=0.46.0",
+    "joblib>=1.4.2",
+    "scapy>=2.6.0",
+    "langgraph>=0.2.35",
+    "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "sentence-transformers>=3.1.1",
+    "langfuse>=2.50.0",
+    "opentelemetry-api>=1.27.0",
+    "opentelemetry-sdk>=1.27.0",
+    "opentelemetry-instrumentation-fastapi>=0.48b0",
+    "mlflow>=2.17.0",
+]
+dev = [
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.7.0",
+    "mypy>=1.12.0",
+    "bandit>=1.7.10",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
